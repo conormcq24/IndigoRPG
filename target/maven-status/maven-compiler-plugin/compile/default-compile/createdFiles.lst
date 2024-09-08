@@ -1,0 +1,14 @@
+me\flyingtaco725\indigorpg\EventHandlers\InventoryClickHandler.class
+me\flyingtaco725\indigorpg\IndigoRPG.class
+me\flyingtaco725\indigorpg\Commands\CharCommand\CharCommandHelpers.class
+me\flyingtaco725\indigorpg\EventHandlers\PlayerJoinHandler.class
+me\flyingtaco725\indigorpg\EventHandlers\PlayerQuitHandler.class
+me\flyingtaco725\indigorpg\EventHandlers\InventoryCloseHandler.class
+me\flyingtaco725\indigorpg\PlayerInfo\TheList.class
+me\flyingtaco725\indigorpg\GUI\CharacterSelector.class
+me\flyingtaco725\indigorpg\PlayerInfo\ThePlayer.class
+me\flyingtaco725\indigorpg\PlayerInfo\TheCharacter.class
+me\flyingtaco725\indigorpg\GUI\ClassSelector.class
+me\flyingtaco725\indigorpg\GUI\ClassSelector$1.class
+me\flyingtaco725\indigorpg\Utility\utils.class
+me\flyingtaco725\indigorpg\Commands\CharCommand\CharCommand.class

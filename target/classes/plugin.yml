@@ -1,0 +1,23 @@
+name: IndigoRPG
+version: '1.0-SNAPSHOT'
+main: me.flyingtaco725.indigorpg.IndigoRPG
+api-version: '1.21'
+
+commands:
+  char:
+    description: IRPG Commands
+    usage: /<command>
+    permission: char.use
+    children:
+      setname:
+        description: set current character's name
+        usage: /<command> setname <name>
+        permission: char.setname
+
+permissions:
+  char.use:
+    description: general irpg command
+    default: true
+  char.setname:
+    description: sets the name of your current pending character
+    default: true
