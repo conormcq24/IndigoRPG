@@ -1,5 +1,7 @@
 package me.flyingtaco725.indigorpg.PlayerInfo;
 
+import org.bukkit.Location;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +10,7 @@ import java.util.UUID;
 public class TheList {
 
     private List<ThePlayer> playerList;
+    private Location creationLocation;
 
     public TheList() {
         this.playerList = new ArrayList<>();
@@ -50,5 +53,13 @@ public class TheList {
     // Should return all players
     public List<ThePlayer> getPlayers() {
         return playerList;
+    }
+
+    public void setCreationLocation(Location location){
+        this.creationLocation = location;
+    }
+
+    public Location getCreationLocation(){
+        return this.creationLocation;
     }
 }

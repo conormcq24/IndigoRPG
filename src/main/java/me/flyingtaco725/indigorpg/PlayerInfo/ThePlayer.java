@@ -54,6 +54,27 @@ public class ThePlayer {
         }
         return false; // Character not found
     }
+    public void saveActiveCharacter() {
+        if (activeCharacter == null) {
+            throw new IllegalStateException("No active character to save.");
+        }
+
+        // Check if a character with the same name exists
+        boolean characterUpdated = false;
+        for (int i = 0; i < characters.size(); i++) {
+            if (characters.get(i).getName().equalsIgnoreCase(activeCharacter.getName())) {
+                // Overwrite the existing character
+                characters.set(i, activeCharacter);
+                characterUpdated = true;
+                break;
+            }
+        }
+
+        // If no character was updated, add the active character to the list
+        if (!characterUpdated) {
+            addCharacter(activeCharacter);
+        }
+    }
 
     // getters
     public boolean isCharacterSelected() {
@@ -80,8 +101,8 @@ public class ThePlayer {
     public void setPendingCharacter(String charClass, int lvl){
         this.activeCharacter = new TheCharacter("", charClass, lvl);
     }
-    public void setActiveCharacter(String charName, String charClass, int lvl){
-        this.activeCharacter = new TheCharacter(charName, charClass, lvl);
+    public void setActiveCharacter(TheCharacter theCharacter){
+        this.activeCharacter = theCharacter;
     }
     public void setPendingCharacterName(String charName){
         this.activeCharacter.setName(charName);

@@ -13,6 +13,15 @@ commands:
         description: set current character's name
         usage: /<command> setname <name>
         permission: char.setname
+  dm:
+    description: 'PREFIX for commands intended only for Dungeon Masters'
+    usage: /<command>
+    permission: dm.use
+    children:
+      characterCreateLocation:
+        description: 'Sets the location for where created players will spawn as well as where everyone will be when selecting their character'
+        usage: /<command> characterCreationLocation | /<command> charCreateLocation
+        permission: dm.charactercreatelocation
 
 permissions:
   char.use:
@@ -20,4 +29,7 @@ permissions:
     default: true
   char.setname:
     description: sets the name of your current pending character
+    default: true
+  dm.charactercreatelocation:
+    description: sets the location for new players, and character selection screen
     default: true

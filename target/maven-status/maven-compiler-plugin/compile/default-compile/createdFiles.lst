@@ -7,8 +7,10 @@ me\flyingtaco725\indigorpg\EventHandlers\InventoryCloseHandler.class
 me\flyingtaco725\indigorpg\PlayerInfo\TheList.class
 me\flyingtaco725\indigorpg\GUI\CharacterSelector.class
 me\flyingtaco725\indigorpg\PlayerInfo\ThePlayer.class
+me\flyingtaco725\indigorpg\Commands\DMCommand\DMCommand.class
 me\flyingtaco725\indigorpg\PlayerInfo\TheCharacter.class
 me\flyingtaco725\indigorpg\GUI\ClassSelector.class
 me\flyingtaco725\indigorpg\GUI\ClassSelector$1.class
 me\flyingtaco725\indigorpg\Utility\utils.class
+me\flyingtaco725\indigorpg\Commands\DMCommand\DMCommandHelpers.class
 me\flyingtaco725\indigorpg\Commands\CharCommand\CharCommand.class

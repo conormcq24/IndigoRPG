@@ -4,6 +4,7 @@ import me.flyingtaco725.indigorpg.IndigoRPG;
 import me.flyingtaco725.indigorpg.PlayerInfo.TheCharacter;
 import me.flyingtaco725.indigorpg.PlayerInfo.ThePlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -97,19 +98,17 @@ public class CharacterSelector {
             ItemMeta meta = event.getCurrentItem().getItemMeta();
             List<String> lore = meta.getLore();
             String uneditedClass = lore.get(0);
-            String uneditedLevel = lore.get(1);
 
-            // assign the information to variables
-            String charClass = extractValue(uneditedClass, "Class: ");
-            int    charLvl   = extractLevel(uneditedLevel, "Level: ");
-            String charName  = meta.getDisplayName().replace("§e", "");
+            // instead of setting everything manually pull from theList.thePlayer.theCharacter
+            // it should have saved the last time they disconnected
+            // use thePlayer information to find character by name:
+            TheCharacter theCharacter = thePlayer.getCharacter(meta.getDisplayName().replace("§e", ""));
+            thePlayer.setActiveCharacter(theCharacter);
 
-            // assign this value to the active character
-            thePlayer.setActiveCharacter(charName, charClass, charLvl);
-
-            // test if its set
-            TheCharacter theCharacter = thePlayer.getActiveCharacter();
-            plugin.getServer().broadcastMessage("Active Player: " + theCharacter.getName());
+            if (thePlayer.getCharacters() != null){
+                // teleport player to the characters last known location
+                player.teleport(thePlayer.getActiveCharacter().getCurrentLocation());
+            }
         }
     }
     // Helper method to extract value from lore string
@@ -131,5 +130,16 @@ public class CharacterSelector {
             }
         }
         return -1; // Return -1 if value is null
+    }
+    // helper function to make location string
+    public String locationToString(Location location) {
+        String world = location.getWorld().getName();
+        double x = location.getX();
+        double y = location.getY();
+        double z = location.getZ();
+        float yaw = location.getYaw();
+        float pitch = location.getPitch();
+
+        return world + "," + x + "," + y + "," + z + "," + yaw + "," + pitch;
     }
 }

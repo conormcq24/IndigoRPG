@@ -1,6 +1,7 @@
 package me.flyingtaco725.indigorpg;
 
 import me.flyingtaco725.indigorpg.Commands.CharCommand.CharCommand;
+import me.flyingtaco725.indigorpg.Commands.DMCommand.DMCommand;
 import me.flyingtaco725.indigorpg.EventHandlers.InventoryClickHandler;
 import me.flyingtaco725.indigorpg.EventHandlers.InventoryCloseHandler;
 import me.flyingtaco725.indigorpg.EventHandlers.PlayerJoinHandler;
@@ -37,6 +38,7 @@ public final class IndigoRPG extends JavaPlugin {
 
         // include any command handler we create here
         getCommand("char").setExecutor(new CharCommand(this));
+        getCommand("dm").setExecutor(new DMCommand(this));
     }
     @Override
     public void onDisable() {
