@@ -3,34 +3,25 @@ package me.flyingtaco725.indigorpg.PlayerInfo;
 import org.bukkit.Location;
 
 public class TheCharacter {
+    // CLASS VARIABLES
     private String name;
     private String characterClass;
     private int level;
     private Location currentLocation;
-
-    public TheCharacter(String name, String characterClass, int level) {
-        this.name = name;
-        this.characterClass = characterClass;
-        this.level = level;
-    }
-
-    // Getters
+    // GETTERS
     public String getName() {
         return name;
     }
-
     public String getCharacterClass() {
         return characterClass;
     }
-
     public int getLevel() {
         return level;
     }
     public Location getCurrentLocation(){
         return this.currentLocation;
     }
-
-    // Setters
+    // SETTERS
     public void setName(String name) {
         this.name = name;
     }
@@ -46,8 +37,10 @@ public class TheCharacter {
     public void setCurrentLocation(Location location){
         this.currentLocation = location;
     }
-    @Override
-    public String toString() {
-        return "Character{name='" + name + "', class='" + characterClass + "', level=" + level + "}";
+    // CONSTRUCTOR
+    public TheCharacter(String name, String characterClass, int level) {
+        this.name = name;
+        this.characterClass = characterClass;
+        this.level = level;
     }
 }

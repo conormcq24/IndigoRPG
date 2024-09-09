@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public class TheList {
 
+    // CLASS VARIABLES
     private List<ThePlayer> playerList;
     private Location creationLocation;
 
@@ -16,19 +17,38 @@ public class TheList {
         this.playerList = new ArrayList<>();
     }
 
-    // Should only add a player, if they are not on the list already
+    // GETTERS
+    public Location getCreationLocation(){
+        return this.creationLocation;
+    }
+    // SETTERS
+    public void setCreationLocation(Location location){
+        this.creationLocation = location;
+    }
+
+    // HELPER FUNCTIONS
+    /*
+        This function adds a player to "theList" using
+        their UUID
+     */
     public void addPlayer(ThePlayer player) {
         if (!containsPlayer(player.getPlayerUUID())) {
             playerList.add(player);
         }
     }
 
-    // Should check if the list already contains a player
+    /*
+        This function checks if a player already exists within
+        "theList"
+     */
     public boolean containsPlayer(UUID playerUUID) {
         return playerList.stream().anyMatch(player -> player.getPlayerUUID().equals(playerUUID));
     }
 
-    // Should find player by uuid
+    /*
+        This function gets a player from "theList" by using
+        their UUID
+     */
     public ThePlayer getPlayer(UUID playerUUID) {
         Optional<ThePlayer> player = playerList.stream()
                 .filter(p -> p.getPlayerUUID().equals(playerUUID))
@@ -36,30 +56,31 @@ public class TheList {
         return player.orElse(null);
     }
 
-    // Remove player by uuid
+    /*
+        This function deletes a player from "theList" by using
+        their UUID
+     */
     public void removePlayer(UUID playerUUID) {
         playerList.removeIf(player -> player.getPlayerUUID().equals(playerUUID));
     }
 
+    /*
+        Checks the entire list for a character name,
+        and verifies whether it exists
+     */
     public boolean doesCharacterExistInAnyPlayer(String charName) {
         for (ThePlayer player : playerList) {
             if (player.doesCharacterExist(charName)) {
-                return true; // Character found
+                return true;
             }
         }
-        return false; // Character not found in any player
+        return false;
     }
 
-    // Should return all players
+    /*
+        returns "theList"
+     */
     public List<ThePlayer> getPlayers() {
         return playerList;
-    }
-
-    public void setCreationLocation(Location location){
-        this.creationLocation = location;
-    }
-
-    public Location getCreationLocation(){
-        return this.creationLocation;
     }
 }
