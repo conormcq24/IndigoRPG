@@ -33,3 +33,5 @@ permissions:
   dm.charactercreatelocation:
     description: sets the location for new players, and character selection screen
     default: true
+
+## depend: [ ProtocolLib ]
